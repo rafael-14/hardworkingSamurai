@@ -1,39 +1,41 @@
 export const products = [
   {
-    _id: '6372e040f52e37ef85fe2c5e',
-    name: 'Pizza quatro queijos',
-    description: 'Deliciosa pizza quatro queijos com borda simples',
-    imagePath: '1668472896991-quatro-queijos.png',
-    price: 40,
+    _id: "63e2efea13ad372e8328ebcb",
+    name: "Pizza quatro queijos",
+    description: "Deliciosa pizza quatro queijos",
+    imagePath: "1675816938126-quatro-queijos.png",
+    price: 49.9,
     ingredients: [
       {
-        name: 'Mussarela',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c5f'
+        name: "Mussarela",
+        icon: "🧀",
+        _id: "63e2efea13ad372e8328ebcc",
       },
       {
-        name: 'Parmesão',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c60'
+        name: "Brie",
+        icon: "🧀",
+        _id: "63e2efea13ad372e8328ebcd",
       },
       {
-        name: 'Gouda',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c61'
+        name: "Catupiry",
+        icon: "🧀",
+        _id: "63e2efea13ad372e8328ebce",
       },
       {
-        name: 'Brie',
-        icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c62'
-      }
+        name: "Gorgonzola",
+        icon: "🧀",
+        _id: "63e2efea13ad372e8328ebcf",
+      },
     ],
+    category: "63e2d2866508c2aebe4bc978",
   },
   {
-    _id: '6372e276a381106c0f854cb3',
-    name: 'Coca cola',
-    description: 'Coca cola lata geladinha topzera',
-    imagePath: '1668473462705-coca-cola.png',
-    price: 7,
+    _id: "63e2f3749966c42bb4efdb06",
+    name: "Coca-Cola",
+    description: "Refrigerante Coca-Cola 2 litros",
+    imagePath: "1675817844773-coca-cola.png",
+    price: 9.9,
     ingredients: [],
+    category: "63e2d2ba6508c2aebe4bc97a",
   },
 ];
