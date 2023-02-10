@@ -44,9 +44,9 @@ export const OrdersContainer = styled.div`
       font-size: 14px;
       color: #666;
     }
-  }
 
-  & + button {
-    margin-top: 24px;
+    & + button {
+      margin-top: 24px;
+    }
   }
 `;

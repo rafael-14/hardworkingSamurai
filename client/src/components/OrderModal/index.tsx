@@ -8,9 +8,19 @@ interface OrderModalProps {
   visible: boolean;
   order: Order | null;
   onClose: () => void;
+  onCancelOrder: () => Promise<void>;
+  isLoading: boolean;
+  onChangeOrderStatus: () => Promise<void>;
 }
 
-export function OrderModal({ visible, order, onClose }: OrderModalProps) {
+export function OrderModal({
+  visible,
+  order,
+  onClose,
+  onCancelOrder,
+  isLoading,
+  onChangeOrderStatus,
+}: OrderModalProps) {
   if (!visible || !order) return null;
 
   const total = order.products.reduce((accumulator, { product, quantity }) => {
@@ -47,7 +57,7 @@ export function OrderModal({ visible, order, onClose }: OrderModalProps) {
             </span>
             <strong>
               {order.status === "WAITING" && "Fila de espera"}
-              {order.status === "IN_PRODUCTION" && "👨Em preparação"}
+              {order.status === "IN_PRODUCTION" && "Em preparação"}
               {order.status === "DONE" && "Pronto!"}
             </strong>
           </div>
@@ -78,16 +88,32 @@ export function OrderModal({ visible, order, onClose }: OrderModalProps) {
           </div>
         </OrderDetails>
 
-        <Actions>
-          <button type="button" className="primary">
-            <span>👨‍🍳</span>
-            <strong>Iniciar Produção</strong>
-          </button>
+        {order.status !== "DONE" && (
+          <Actions>
+            <button
+              type="button"
+              className="primary"
+              disabled={isLoading}
+              onClick={onChangeOrderStatus}
+            >
+              <span>{order.status === "WAITING" ? "👨‍🍳" : "✅"}</span>
+              <strong>
+                {order.status === "WAITING"
+                  ? "Iniciar Produção"
+                  : "Concluir Pedido"}
+              </strong>
+            </button>
 
-          <button type="button" className="secondary">
-            Cancelar Pedido
-          </button>
-        </Actions>
+            <button
+              type="button"
+              className="secondary"
+              onClick={onCancelOrder}
+              disabled={isLoading}
+            >
+              Cancelar Pedido
+            </button>
+          </Actions>
+        )}
       </ModalBody>
     </Overlay>
   );
